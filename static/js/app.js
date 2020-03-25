@@ -8,18 +8,6 @@ const LOCATION = 4;
 const BBTYPE = 5;
 const WFREQ = 6;
 
-/**
- * Helper function to select stock data
- * Returns an array of values
- * @param {array} rows
- * @param {integer} index
- */
-function unpack(rows, index) {
-    return rows.map(function(row) {
-        return row[index];
-    });
-};
-
 var dropdownList = d3.select("#selDataset");
 
 var sampleData = [];
@@ -32,6 +20,18 @@ var bbtypes = [];
 var wfreqs = [];
 
 d3.json("static/data/samples.json").then((incomingData) => {
+    /**
+     * Helper function to select stock data
+     * Returns an array of values
+     * @param {array} rows
+     * @param {integer} index
+     */
+    function unpack(rows, index) {
+        return rows.map(function(row) {
+            return row[index];
+        });
+    };
+
     // Store the raw data for later use
     sampleData = incomingData;
 
