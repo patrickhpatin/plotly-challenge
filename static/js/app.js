@@ -47,7 +47,7 @@ d3.json("static/data/samples.json").then((incomingData) => {
                 case LOCATION:
                     value = row["location"];
                     break;
-                case BBTYPES:
+                case BBTYPE:
                     value = row["bbtype"];
                     break;
                 case WFREQ:
@@ -63,7 +63,7 @@ d3.json("static/data/samples.json").then((incomingData) => {
     metaData = sampleData["metadata"];
 
     // Make sure my testing is being done on the right file
-    console.log("Testing unpack function spelled correctly this time.");
+    console.log("Testing unpack function with bbtype corrected.");
 
     // Let's see the raw data
     // console.log("ALL DATA:");
