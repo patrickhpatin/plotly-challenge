@@ -31,7 +31,7 @@ var locations = [];
 var bbtypes = [];
 var wfreqs = [];
 
-d3.json("../data/samples.json").then((incomingData) => {
+d3.json("static/data/samples.json").then((incomingData) => {
     // Store the raw data for later use
     sampleData = incomingData;
 
