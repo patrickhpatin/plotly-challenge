@@ -22,8 +22,6 @@ function unpack(rows, index) {
 
 var dropdownList = d3.select("#selDataset");
 
-
-
 var sampleData = [];
 var names = [];
 var ethnicities = [];
@@ -38,11 +36,11 @@ d3.json("static/data/samples.json").then((incomingData) => {
     sampleData = incomingData;
 
     // Let's see the raw data
-    console.log("NAMES:");
-    console.log(sampleData["names"]);
-    console.log("----------------------");
+    // console.log("NAMES:");
+    // console.log(sampleData["names"]);
+    // console.log("----------------------");
     console.log("METADATA:");
-    console.log(upack(sampleData["metadata"], ETHNICITY));
+    console.log(sampleData["metadata"][0]["ethnicity"]);
     console.log("----------------------");
 
     // names = sampleData.names; // ID
