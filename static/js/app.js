@@ -40,13 +40,13 @@ var wfreqs = [];
 var sampleData = d3.json("static/data/samples.json").then((incomingData) => {
     // Store the raw data for later use
     sampleData = incomingData;
-    
+
     // Let's see the raw data
     console.log("NAMES:");
-    console.log(sampleData.names);
+    console.log(sampleData["names"]);
     console.log("----------------------");
-    console.log("ETHNICITY:");
-    console.log(upack(sampleData.metadata, ETHNICITY));
+    console.log("METADATA:");
+    console.log(upack(sampleData["metadata"], ETHNICITY));
     console.log("----------------------");
 
     // names = sampleData.names; // ID
