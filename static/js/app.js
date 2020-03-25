@@ -28,13 +28,37 @@ d3.json("static/data/samples.json").then((incomingData) => {
      */
     function unpack(rows, index) {
         return rows.map(function(row) {
-            return row[index];
+            var value = "";
+            switch (index) {
+                case NAME:
+                    value = row["id"];
+                    break;
+                case ETHNICITY:
+                    value = row["ethnicity"];
+                    break;
+                case GENDER:
+                    value = row["gender"];
+                    break;
+                case AGE:
+                    value = row["age"];
+                    break;
+                case LOCATION:
+                    value = row["location"];
+                    break;
+                case BBTYPES:
+                    value = row["bbtype"];
+                    break;
+                case WFREQ:
+                    value = row["wfreq"];
+                    break;
+            };
+            return value;
         });
     };
 
     // Store the raw data for later use
     sampleData = incomingData;
-
+    console.log("Test 1");
     // Let's see the raw data
     console.log("ALL DATA:");
     console.log(sampleData);
