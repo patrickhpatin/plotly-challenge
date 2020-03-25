@@ -40,6 +40,7 @@ var wfreqs = [];
 var sampleData = d3.json("static/data/samples.json").then((incomingData) => {
     // Store the raw data for later use
     sampleData = incomingData;
+    
     // Let's see the raw data
     console.log("NAMES:");
     console.log(sampleData.names);
@@ -60,11 +61,11 @@ var sampleData = d3.json("static/data/samples.json").then((incomingData) => {
     // wfreqs = upack(sampleData.metadata, WFREQ);
 
     
-    for (var i = 0; i < names.length; i++) {
-        // BIND DATA TO <select> ELEMENT.
-        dropdownList.innerHTML = dropdownList.innerHTML +
-            `<option value="${names[i]}">${names[i]}</option>`;
-    }
+    // for (var i = 0; i < names.length; i++) {
+    //     // BIND DATA TO <select> ELEMENT.
+    //     dropdownList.innerHTML = dropdownList.innerHTML +
+    //         `<option value="${names[i]}">${names[i]}</option>`;
+    // }
 });
 
 dropdownList.on("change", () => {
