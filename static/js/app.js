@@ -63,7 +63,7 @@ d3.json("static/data/samples.json").then((incomingData) => {
     metaData = sampleData["metadata"];
 
     // Make sure my testing is being done on the right file
-    console.log("Testing unpack function.");
+    console.log("Testing unpack function spelled correctly this time.");
 
     // Let's see the raw data
     // console.log("ALL DATA:");
