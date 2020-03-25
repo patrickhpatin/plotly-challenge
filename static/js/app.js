@@ -62,7 +62,7 @@ d3.json("static/data/samples.json").then((incomingData) => {
     // }
 });
 
-dropdownList.on("change", () => {
-    // var name = dropdownList.node().value;
-    // console.log(name);
-});
+// dropdownList.on("change", () => {
+//     var name = dropdownList.node().value;
+//     console.log(name);
+// });
