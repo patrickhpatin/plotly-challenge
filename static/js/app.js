@@ -44,37 +44,37 @@ d3.json("../data/samples.json").then((incomingData) => {
     console.log(sampleData["metadata"]);
     console.log("----------------------");
 
-    names = sampleData.names; // ID
+    names = sampleData["names"]; // ID
     console.log("Names (IDs):");
     console.log(names);
     console.log("----------------------");
 
-    ethnicities = upack(sampleData.metadata, ETHNICITY);
+    ethnicities = upack(sampleData["metadata"], ETHNICITY);
     console.log("Ethnicities:");
     console.log(ethnicities);
     console.log("----------------------");
 
-    genders = upack(sampleData.metadata, GENDER);
+    genders = upack(sampleData["metadata"], GENDER);
     console.log("Genders:");
     console.log(genders);
     console.log("----------------------");
 
-    ages = upack(sampleData.metadata, AGE);
+    ages = upack(sampleData["metadata"], AGE);
     console.log("Ages:");
     console.log(ages);
     console.log("----------------------");
 
-    locations = upack(sampleData.metadata, LOCATION);
+    locations = upack(sampleData["metadata"], LOCATION);
     console.log("Locations:");
     console.log(locations);
     console.log("----------------------");
 
-    bbtypes = upack(sampleData.metadata, BBTYPE);
+    bbtypes = upack(sampleData["metadata"], BBTYPE);
     console.log("BBTypes:");
     console.log(bbtypes);
     console.log("----------------------");
 
-    wfreqs = upack(sampleData.metadata, WFREQ);
+    wfreqs = upack(sampleData["metadata"], WFREQ);
     console.log("WFreqs:");
     console.log(wfreqs);
     console.log("----------------------");
