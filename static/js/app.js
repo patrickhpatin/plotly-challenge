@@ -62,22 +62,19 @@ d3.json("static/data/samples.json").then((incomingData) => {
     sampleData = incomingData;
     metaData = sampleData["metadata"];
 
-    // Make sure my testing is being done on the right file
-    console.log("Testing unpack function with bbtype corrected.");
-
     // Let's see the raw data
-    // console.log("ALL DATA:");
-    // console.log(sampleData);
-    // console.log("----------------------");
+    console.log("ALL DATA:");
+    console.log(sampleData);
+    console.log("----------------------");
 
-    // console.log("Survey Data:");
-    // console.log(sampleData["metadata"]);
-    // console.log("----------------------");
+    console.log("Survey Data:");
+    console.log(sampleData["metadata"]);
+    console.log("----------------------");
 
-    // names = sampleData["names"]; // ID
-    // console.log("Names (IDs):");
-    // console.log(names);
-    // console.log("----------------------");
+    names = sampleData["names"]; // ID
+    console.log("Names (IDs):");
+    console.log(names);
+    console.log("----------------------");
 
     ethnicities = unpack(metaData, ETHNICITY);
     console.log("Ethnicities:");
@@ -109,7 +106,9 @@ d3.json("static/data/samples.json").then((incomingData) => {
     console.log(wfreqs);
     console.log("----------------------");
 
-    
+    // Make sure my testing is being done on the right file
+    console.log("Testing the loading of values in the dropdown list.");
+
     for (var i = 0; i < names.length; i++) {
         // BIND DATA TO <select> ELEMENT.
         dropdownList.innerHTML = dropdownList.innerHTML +
