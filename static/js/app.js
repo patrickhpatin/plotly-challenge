@@ -11,6 +11,8 @@ const WFREQ = 6;
 var dropdownList = d3.select("#selDataset");
 
 var sampleData = [];
+var metaData = [];
+
 var names = [];
 var ethnicities = [];
 var genders = [];
@@ -58,7 +60,11 @@ d3.json("static/data/samples.json").then((incomingData) => {
 
     // Store the raw data for later use
     sampleData = incomingData;
-    console.log("Test 1");
+    metaData = sampleData["metadata"];
+
+    // Make sure my testing is being done on the right file
+    console.log("Test with metaData variable.");
+
     // Let's see the raw data
     console.log("ALL DATA:");
     console.log(sampleData);
@@ -73,32 +79,32 @@ d3.json("static/data/samples.json").then((incomingData) => {
     console.log(names);
     console.log("----------------------");
 
-    ethnicities = upack(sampleData["metadata"], ETHNICITY);
+    ethnicities = upack(metaData, ETHNICITY);
     console.log("Ethnicities:");
     console.log(ethnicities);
     console.log("----------------------");
 
-    genders = upack(sampleData["metadata"], GENDER);
+    genders = upack(metaData, GENDER);
     console.log("Genders:");
     console.log(genders);
     console.log("----------------------");
 
-    ages = upack(sampleData["metadata"], AGE);
+    ages = upack(metaData, AGE);
     console.log("Ages:");
     console.log(ages);
     console.log("----------------------");
 
-    locations = upack(sampleData["metadata"], LOCATION);
+    locations = upack(metaData, LOCATION);
     console.log("Locations:");
     console.log(locations);
     console.log("----------------------");
 
-    bbtypes = upack(sampleData["metadata"], BBTYPE);
+    bbtypes = upack(metaData, BBTYPE);
     console.log("BBTypes:");
     console.log(bbtypes);
     console.log("----------------------");
 
-    wfreqs = upack(sampleData["metadata"], WFREQ);
+    wfreqs = upack(metaData, WFREQ);
     console.log("WFreqs:");
     console.log(wfreqs);
     console.log("----------------------");
