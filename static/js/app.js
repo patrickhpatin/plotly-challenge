@@ -43,7 +43,7 @@ var sampleData = d3.json("static/data/samples.json").then((incomingData) => {
     // Let's see the raw data
     console.log(sampleData);
     console.log("----------------------");
-    console.log(sampleData.metadata.metadata);
+    console.log(sampleData.metadata);
     console.log("----------------------");
 
     names = sampleData.names; // ID
