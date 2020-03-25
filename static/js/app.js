@@ -63,21 +63,21 @@ d3.json("static/data/samples.json").then((incomingData) => {
     metaData = sampleData["metadata"];
 
     // Make sure my testing is being done on the right file
-    console.log("Test with metaData variable.");
+    console.log("Testing unpack function.");
 
     // Let's see the raw data
-    console.log("ALL DATA:");
-    console.log(sampleData);
-    console.log("----------------------");
+    // console.log("ALL DATA:");
+    // console.log(sampleData);
+    // console.log("----------------------");
 
-    console.log("Survey Data:");
-    console.log(sampleData["metadata"]);
-    console.log("----------------------");
+    // console.log("Survey Data:");
+    // console.log(sampleData["metadata"]);
+    // console.log("----------------------");
 
-    names = sampleData["names"]; // ID
-    console.log("Names (IDs):");
-    console.log(names);
-    console.log("----------------------");
+    // names = sampleData["names"]; // ID
+    // console.log("Names (IDs):");
+    // console.log(names);
+    // console.log("----------------------");
 
     ethnicities = upack(metaData, ETHNICITY);
     console.log("Ethnicities:");
