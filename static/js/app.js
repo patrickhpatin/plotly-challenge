@@ -106,17 +106,27 @@ d3.json("static/data/samples.json").then((incomingData) => {
     console.log(wfreqs);
     console.log("----------------------");
 
-    // Make sure my testing is being done on the right file
-    console.log("Testing the loading of values in the dropdown list.");
-
+    // Make sure my testing is being done on the right file    
+    console.log("Adding values to the drop down list now.");
+    var newOption = "";
+    dropdownList.html(newOption);
+    
     for (var i = 0; i < names.length; i++) {
-        // BIND DATA TO <select> ELEMENT.
-        dropdownList.innerHTML = dropdownList.innerHTML +
-            `<option value="${names[i]}">${names[i]}</option>`;
+        newOption = `${dropdownList.innerHTML}<option value="${names[i]}">${names[i]}</option>`;
+        console.log(newOption);
+        dropdownList.innerHTML = newOption;
     };
 });
 
+
+function generateDemoData(name) {
+
+};
+
 dropdownList.on("change", () => {
-    var name = dropdownList.node().value;
+    var name = dropdownList.value;
     console.log(name);
+
+    var demoData = generateDemoData(name);
+    d3.select("#sample-metadata").html(demoData);
 });
