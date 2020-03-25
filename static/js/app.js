@@ -36,23 +36,48 @@ d3.json("static/data/samples.json").then((incomingData) => {
     sampleData = incomingData;
 
     // Let's see the raw data
-    // console.log("NAMES:");
-    // console.log(sampleData["names"]);
-    // console.log("----------------------");
-    console.log("METADATA:");
-    console.log(sampleData["metadata"][0]["ethnicity"]);
+    console.log("ALL DATA:");
+    console.log(sampleData);
     console.log("----------------------");
 
-    // names = sampleData.names; // ID
-    // console.log(names);
-    // ethnicities = upack(sampleData.metadata, ETHNICITY);
-    // console.log(ethnicities);
+    console.log("Survey Data:");
+    console.log(sampleData["metadata"]);
+    console.log("----------------------");
 
-    // genders = upack(sampleData.metadata, GENDER);
-    // ages = upack(sampleData.metadata, AGE);
-    // locations = upack(sampleData.metadata, LOCATION);
-    // bbtypes = upack(sampleData.metadata, BBTYPE);
-    // wfreqs = upack(sampleData.metadata, WFREQ);
+    names = sampleData.names; // ID
+    console.log("Names (IDs):");
+    console.log(names);
+    console.log("----------------------");
+
+    ethnicities = upack(sampleData.metadata, ETHNICITY);
+    console.log("Ethnicities:");
+    console.log(ethnicities);
+    console.log("----------------------");
+
+    genders = upack(sampleData.metadata, GENDER);
+    console.log("Genders:");
+    console.log(genders);
+    console.log("----------------------");
+
+    ages = upack(sampleData.metadata, AGE);
+    console.log("Ages:");
+    console.log(ages);
+    console.log("----------------------");
+
+    locations = upack(sampleData.metadata, LOCATION);
+    console.log("Locations:");
+    console.log(locations);
+    console.log("----------------------");
+
+    bbtypes = upack(sampleData.metadata, BBTYPE);
+    console.log("BBTypes:");
+    console.log(bbtypes);
+    console.log("----------------------");
+
+    wfreqs = upack(sampleData.metadata, WFREQ);
+    console.log("WFreqs:");
+    console.log(wfreqs);
+    console.log("----------------------");
 
     
     // for (var i = 0; i < names.length; i++) {
