@@ -79,32 +79,32 @@ d3.json("static/data/samples.json").then((incomingData) => {
     // console.log(names);
     // console.log("----------------------");
 
-    ethnicities = upack(metaData, ETHNICITY);
+    ethnicities = unpack(metaData, ETHNICITY);
     console.log("Ethnicities:");
     console.log(ethnicities);
     console.log("----------------------");
 
-    genders = upack(metaData, GENDER);
+    genders = unpack(metaData, GENDER);
     console.log("Genders:");
     console.log(genders);
     console.log("----------------------");
 
-    ages = upack(metaData, AGE);
+    ages = unpack(metaData, AGE);
     console.log("Ages:");
     console.log(ages);
     console.log("----------------------");
 
-    locations = upack(metaData, LOCATION);
+    locations = unpack(metaData, LOCATION);
     console.log("Locations:");
     console.log(locations);
     console.log("----------------------");
 
-    bbtypes = upack(metaData, BBTYPE);
+    bbtypes = unpack(metaData, BBTYPE);
     console.log("BBTypes:");
     console.log(bbtypes);
     console.log("----------------------");
 
-    wfreqs = upack(metaData, WFREQ);
+    wfreqs = unpack(metaData, WFREQ);
     console.log("WFreqs:");
     console.log(wfreqs);
     console.log("----------------------");
