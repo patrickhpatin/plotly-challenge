@@ -41,25 +41,25 @@ var sampleData = d3.json("static/data/samples.json").then((incomingData) => {
     // Store the raw data for later use
     sampleData = incomingData.metadata;
     // Let's see the raw data
-    // console.log(sampleData);
-    // console.log("----------------------");
+    console.log(sampleData);
+    console.log("----------------------");
     console.log(sampleData.metadata.metadata);
     console.log("----------------------");
 
-    // names = sampleData.names; // ID
-    // ethnicities = upack(sampleData.metadata, ETHNICITY);
-    // genders = upack(sampleData.metadata, GENDER);
-    // ages = upack(sampleData.metadata, AGE);
-    // locations = upack(sampleData.metadata, LOCATION);
-    // bbtypes = upack(sampleData.metadata, BBTYPE);
-    // wfreqs = upack(sampleData.metadata, WFREQ);
+    names = sampleData.names; // ID
+    ethnicities = upack(sampleData.metadata, ETHNICITY);
+    genders = upack(sampleData.metadata, GENDER);
+    ages = upack(sampleData.metadata, AGE);
+    locations = upack(sampleData.metadata, LOCATION);
+    bbtypes = upack(sampleData.metadata, BBTYPE);
+    wfreqs = upack(sampleData.metadata, WFREQ);
 
     
-    // for (var i = 0; i < ids.length; i++) {
-    //     // BIND DATA TO <select> ELEMENT.
-    //     dropdownList.innerHTML = dropdownList.innerHTML +
-    //         `<option value="${names[i]}">${names[i]}</option>`;
-    // }
+    for (var i = 0; i < ids.length; i++) {
+        // BIND DATA TO <select> ELEMENT.
+        dropdownList.innerHTML = dropdownList.innerHTML +
+            `<option value="${names[i]}">${names[i]}</option>`;
+    }
 });
 
 dropdownList.on("change", () => {
