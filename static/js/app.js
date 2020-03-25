@@ -10,6 +10,42 @@ const WFREQ = 6;
 
 var dropdownList = d3.select("#selDataset");
 
+/**
+ * Helper function to select stock data
+ * Returns an array of values
+ * @param {array} rows
+ * @param {integer} index
+ */
+function unpack(rows, index) {
+    return rows.map(function(row) {
+        var value = "";
+        switch (index) {
+            case NAME:
+                value = row["id"];
+                break;
+            case ETHNICITY:
+                value = row["ethnicity"];
+                break;
+            case GENDER:
+                value = row["gender"];
+                break;
+            case AGE:
+                value = row["age"];
+                break;
+            case LOCATION:
+                value = row["location"];
+                break;
+            case BBTYPE:
+                value = row["bbtype"];
+                break;
+            case WFREQ:
+                value = row["wfreq"];
+                break;
+        };
+        return value;
+    });
+};
+
 var sampleData = [];
 var metaData = [];
 
@@ -22,42 +58,6 @@ var bbtypes = [];
 var wfreqs = [];
 
 d3.json("static/data/samples.json").then((incomingData) => {
-    /**
-     * Helper function to select stock data
-     * Returns an array of values
-     * @param {array} rows
-     * @param {integer} index
-     */
-    function unpack(rows, index) {
-        return rows.map(function(row) {
-            var value = "";
-            switch (index) {
-                case NAME:
-                    value = row["id"];
-                    break;
-                case ETHNICITY:
-                    value = row["ethnicity"];
-                    break;
-                case GENDER:
-                    value = row["gender"];
-                    break;
-                case AGE:
-                    value = row["age"];
-                    break;
-                case LOCATION:
-                    value = row["location"];
-                    break;
-                case BBTYPE:
-                    value = row["bbtype"];
-                    break;
-                case WFREQ:
-                    value = row["wfreq"];
-                    break;
-            };
-            return value;
-        });
-    };
-
     // Store the raw data for later use
     sampleData = incomingData;
     metaData = sampleData["metadata"];
@@ -116,7 +116,7 @@ d3.json("static/data/samples.json").then((incomingData) => {
     };
 });
 
-// dropdownList.on("change", () => {
-//     var name = dropdownList.node().value;
-//     console.log(name);
-// });
+dropdownList.on("change", () => {
+    var name = dropdownList.node().value;
+    console.log(name);
+});
