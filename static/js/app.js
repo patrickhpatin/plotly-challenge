@@ -80,11 +80,11 @@ d3.json("../data/samples.json").then((incomingData) => {
     console.log("----------------------");
 
     
-    // for (var i = 0; i < names.length; i++) {
-    //     // BIND DATA TO <select> ELEMENT.
-    //     dropdownList.innerHTML = dropdownList.innerHTML +
-    //         `<option value="${names[i]}">${names[i]}</option>`;
-    // }
+    for (var i = 0; i < names.length; i++) {
+        // BIND DATA TO <select> ELEMENT.
+        dropdownList.innerHTML = dropdownList.innerHTML +
+            `<option value="${names[i]}">${names[i]}</option>`;
+    };
 });
 
 // dropdownList.on("change", () => {
