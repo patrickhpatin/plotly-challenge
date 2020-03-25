@@ -45,13 +45,13 @@ var sampleData = d3.json("static/data/samples.json").then((incomingData) => {
     console.log(sampleData.names);
     console.log("----------------------");
     console.log("ETHNICITY:");
-    console.log(sampleData.metadata[0][1]);
+    console.log(upack(sampleData.metadata, ETHNICITY));
     console.log("----------------------");
 
-    names = sampleData.names; // ID
-    console.log(names);
-    ethnicities = upack(sampleData.metadata, ETHNICITY);
-    console.log(ethnicities);
+    // names = sampleData.names; // ID
+    // console.log(names);
+    // ethnicities = upack(sampleData.metadata, ETHNICITY);
+    // console.log(ethnicities);
 
     // genders = upack(sampleData.metadata, GENDER);
     // ages = upack(sampleData.metadata, AGE);
@@ -68,6 +68,6 @@ var sampleData = d3.json("static/data/samples.json").then((incomingData) => {
 });
 
 dropdownList.on("change", () => {
-    var name = dropdownList.node().value;
-    console.log(name);
+    // var name = dropdownList.node().value;
+    // console.log(name);
 });
