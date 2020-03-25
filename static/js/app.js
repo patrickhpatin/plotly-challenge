@@ -42,6 +42,9 @@ var sampleData = d3.json("static/data/samples.json").then((incomingData) => {
     sampleData = incomingData;
     // Let's see the raw data
     console.log(sampleData);
+    console.log("----------------------");
+    console.log(sampleData.metadata);
+    console.log("----------------------");
 
     names = sampleData.names; // ID
     ethnicities = upack(sampleData.metadata, ETHNICITY);
