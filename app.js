@@ -47,7 +47,7 @@ function unpack(rows, index) {
 var sampleData = [];
 var metaData = [];
 
-var names = [];
+var names = ["940", "941", "943", "944", "945"];
 var ethnicities = [];
 var genders = [];
 var ages = [];
@@ -153,7 +153,7 @@ function populateHBar(index) {
 };
 
 // Make sure my testing is being done on the right file    
-console.log("Corrected the .onChange event.");
+console.log("Added function optionChanged(index).");
 
 
 function generateDemoData(index) {
@@ -167,8 +167,10 @@ function generateDemoData(index) {
     return selectedInfo;
 };
 
-d3.select("#selDataset").on("change", () => {
-    var ddlIndex = parseInt(dropdownList.options[dropdownList.selectedIndex].value);
+// d3.select("#selDataset").on("change", () => {
+function optionChanged(index) {
+    // var ddlIndex = parseInt(dropdownList.options[dropdownList.selectedIndex].value);
+    var ddlIndex = parseInt(index);
     console.log(names[ddlIndex]);
 
     // var demoData = generateDemoData(ddlIndex);
