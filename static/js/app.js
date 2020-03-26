@@ -90,7 +90,7 @@ d3.json("static/data/samples.json").then((incomingData) => {
     console.log("----------------------");
 
     // Make sure my testing is being done on the right file    
-    console.log("Adding values to the drop down list now.");
+    console.log("Still trying to add values to the drop down list.");
     var newOption = "";
     dropdownList.text = "";
 
