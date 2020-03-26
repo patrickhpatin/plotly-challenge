@@ -109,7 +109,7 @@ d3.json("static/data/samples.json").then((incomingData) => {
     console.log("----------------------");
 
     // Make sure my testing is being done on the right file    
-    console.log("Selecting from the combobox should now display the index.");
+    console.log("Selecting from the combobox should now display the index.  For reals this time.");
     
     // Clear out the drop down list
     // dropdownList.options.length = 0;
@@ -168,7 +168,7 @@ function generateDemoData(index) {
 };
 
 dropdownList.on("change", () => {
-    var ddlIndex = parseInt(dropdownList.value);
+    var ddlIndex = parseInt(dropdownList.options[dropdownList.selectedIndex].value);
     console.log(names[ddlIndex]);
 
     // var demoData = generateDemoData(ddlIndex);
