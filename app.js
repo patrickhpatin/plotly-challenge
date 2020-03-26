@@ -55,8 +55,8 @@ var locations = [];
 var bbtypes = [];
 var wfreqs = [];
 
-function addOption( value ) {
-    dropdownList.options[dropdownList.options.length] = new Option(value);
+function addOption( index ) {
+    dropdownList.options[dropdownList.options.length] = new Option(names[index], index.toString());
 };
 
 d3.json("static/data/samples.json").then((incomingData) => {
@@ -108,35 +108,71 @@ d3.json("static/data/samples.json").then((incomingData) => {
     console.log(wfreqs);
     console.log("----------------------");
 
-    var demoData = `<table><tr><td><strong>id:</strong></td><td>${names[0]}</td></tr>` +
-                    `<tr><td><strong>ethnicity:</strong></td><td>${ethnicities[0]}</td></tr>` +
-                    `<tr><td><strong>gender:</strong></td><td>${genders[0]}</td></tr>` +
-                    `<tr><td><strong>age:</strong></td><td>${ages[0]}</td></tr>` +
-                    `<tr><td><strong>location:</strong></td><td>${locations[0]}</td></tr>` +
-                    `<tr><td><strong>bbtype:</strong></td><td>${bbtypes[0]}</td></tr>` +
-                    `<tr><td><strong>wfreq:</strong></td><td>${wfreqs[0]}</td></tr></table>`
-    d3.select("#sample-metadata").html(demoData);
-
     // Make sure my testing is being done on the right file    
-    console.log("Changed how we reference the dropdown list.  And changed location of Demo Data code.");
+    console.log("Selecting from the combobox should now display the index.");
     
     // Clear out the drop down list
     // dropdownList.options.length = 0;
 
     for (var i = 0; i < names.length; i++) {
-        addOption(names[i]);
+        addOption(i);
     };
 });
 
+function populateHBar(index) {
+    // ================================================
+    //                 HBar Plot Code
+    // ================================================
+    // Create a horizontal bar chart with a dropdown menu to display the top 10 OTUs found in that individual.
+    // Use `sample_values` as the values for the bar chart.
+    // Use `otu_ids` as the labels for the bar chart.
+    // Use `otu_labels` as the hovertext for the chart.
+    // ================================================
+//     var trace = {
+//     x: reversedData.map(object => object.greekSearchResults),
+//     y: reversedData.map(object => object.greekName),
+//     text: reversedData.map(object => object.greekName),
+//     name: "Greek",
+//     type: "bar",
+//     orientation: "h"
+//   };
+  
+//   // data
+//   var data = [trace];
+  
+//   // Apply the group bar mode to the layout
+//   var layout = {
+//     title: "Greek gods search results",
+//     margin: {
+//       l: 100,
+//       r: 100,
+//       t: 100,
+//       b: 100
+//     }
+//   };
+  
+//   // Render the plot to the div tag with id "plot"
+//   Plotly.newPlot("plot", data, layout);
+};
 
-// function generateDemoData(name) {
-//     return `<p>Name:<br></p>`
-// };
 
-// dropdownList.on("change", () => {
-//     var name = dropdownList.value;
-//     console.log(name);
+function generateDemoData(index) {
+    var selectedInfo = `<table><tr><td><strong>id:</strong></td><td>${names[index]}</td></tr>` +
+    `<tr><td><strong>ethnicity:</strong></td><td>${ethnicities[index]}</td></tr>` +
+    `<tr><td><strong>gender:</strong></td><td>${genders[index]}</td></tr>` +
+    `<tr><td><strong>age:</strong></td><td>${ages[index]}</td></tr>` +
+    `<tr><td><strong>location:</strong></td><td>${locations[index]}</td></tr>` +
+    `<tr><td><strong>bbtype:</strong></td><td>${bbtypes[index]}</td></tr>` +
+    `<tr><td><strong>wfreq:</strong></td><td>${wfreqs[index]}</td></tr></table>`
+    return selectedInfo;
+};
 
-//     var demoData = generateDemoData(name);
-//     d3.select("#sample-metadata").html(demoData);
-// });
+dropdownList.on("change", () => {
+    var ddlIndex = parseInt(dropdownList.value);
+    console.log(names[ddlIndex]);
+
+    // var demoData = generateDemoData(ddlIndex);
+    // d3.select("#sample-metadata").html(demoData);
+
+    // populateHBar(ddlIndex);
+});
