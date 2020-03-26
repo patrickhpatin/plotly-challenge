@@ -33,6 +33,13 @@ var locations = [];
 var bbtypes = [];
 var wfreqs = [];
 
+function addOption( text, value ) {
+    var optn = document.createElement("OPTION");
+    optn.text = text;
+    optn.value = value;
+    dropdownList.options.add(optn);
+};
+
 d3.json("static/data/samples.json").then((incomingData) => {
     // Store the raw data for later use
     sampleData = incomingData;
@@ -88,10 +95,9 @@ d3.json("static/data/samples.json").then((incomingData) => {
     dropdownList.text = "";
 
     for (var i = 0; i < names.length; i++) {
-        newOption = newOption + `<option value="${names[i]}">${names[i]}</option>`;
+        addOption(names[i], names[i]);
+        // newOption = newOption + `<option value="${names[i]}">${names[i]}</option>`;
     };
-    console.log(newOption);
-    dropdownList.text = newOption;
 });
 
 var demoData = `<table><tr><td><strong>id:</strong></td><td>${names[0]}</td></tr>` +
