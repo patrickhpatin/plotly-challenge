@@ -108,8 +108,17 @@ d3.json("static/data/samples.json").then((incomingData) => {
     console.log(wfreqs);
     console.log("----------------------");
 
+    var demoData = `<table><tr><td><strong>id:</strong></td><td>${names[0]}</td></tr>` +
+                    `<tr><td><strong>ethnicity:</strong></td><td>${ethnicities[0]}</td></tr>` +
+                    `<tr><td><strong>gender:</strong></td><td>${genders[0]}</td></tr>` +
+                    `<tr><td><strong>age:</strong></td><td>${ages[0]}</td></tr>` +
+                    `<tr><td><strong>location:</strong></td><td>${locations[0]}</td></tr>` +
+                    `<tr><td><strong>bbtype:</strong></td><td>${bbtypes[0]}</td></tr>` +
+                    `<tr><td><strong>wfreq:</strong></td><td>${wfreqs[0]}</td></tr></table>`
+    d3.select("#sample-metadata").html(demoData);
+
     // Make sure my testing is being done on the right file    
-    console.log("Changed how we reference the dropdown list.");
+    console.log("Changed how we reference the dropdown list.  And changed location of Demo Data code.");
     
     // Clear out the drop down list
     // dropdownList.options.length = 0;
@@ -118,15 +127,6 @@ d3.json("static/data/samples.json").then((incomingData) => {
         addOption(names[i]);
     };
 });
-
-var demoData = `<table><tr><td><strong>id:</strong></td><td>${names[0]}</td></tr>` +
-                    `<tr><td><strong>ethnicity:</strong></td><td>${ethnicities[0]}</td></tr>` +
-                    `<tr><td><strong>gender:</strong></td><td>${genders[0]}</td></tr>` +
-                    `<tr><td><strong>age:</strong></td><td>${ages[0]}</td></tr>` +
-                    `<tr><td><strong>location:</strong></td><td>${locations[0]}</td></tr>` +
-                    `<tr><td><strong>bbtype:</strong></td><td>${bbtypes[0]}</td></tr>` +
-                    `<tr><td><strong>wfreq:</strong></td><td>${wfreqs[0]}</td></tr></table>`
-d3.select("#sample-metadata").html(demoData);
 
 
 // function generateDemoData(name) {
