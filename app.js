@@ -153,7 +153,7 @@ function populateHBar(index) {
 };
 
 // Make sure my testing is being done on the right file    
-console.log("Added function optionChanged(index).");
+console.log("Added selectedIndex to the console log.");
 
 
 function generateDemoData(index) {
@@ -172,6 +172,7 @@ function optionChanged(index) {
     // var ddlIndex = parseInt(dropdownList.options[dropdownList.selectedIndex].value);
     var ddlIndex = parseInt(index);
     console.log(names[ddlIndex]);
+    console.log(`Selected Index = ${dropdownList.selectedIndex}`);
 
     // var demoData = generateDemoData(ddlIndex);
     // d3.select("#sample-metadata").html(demoData);
