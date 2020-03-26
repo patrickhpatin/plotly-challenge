@@ -109,7 +109,7 @@ d3.json("static/data/samples.json").then((incomingData) => {
     console.log("----------------------");
 
     // Make sure my testing is being done on the right file    
-    console.log("Unpack is working again.  Just testing the combobox now.");
+    console.log("Unpack is working again.  Just testing the combobox now.  Changed location of app.js.");
     
     // Clear out the drop down list
     dropdownList.options.length = 0;
