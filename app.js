@@ -177,4 +177,4 @@ function optionChanged(index) {
     // d3.select("#sample-metadata").html(demoData);
 
     // populateHBar(ddlIndex);
-});
+};
