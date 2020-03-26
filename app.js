@@ -65,48 +65,48 @@ d3.json("static/data/samples.json").then((incomingData) => {
     metaData = sampleData["metadata"];
 
     // Let's see the raw data
-    // console.log("ALL DATA:");
-    // console.log(sampleData);
-    // console.log("----------------------");
+    console.log("ALL DATA:");
+    console.log(sampleData);
+    console.log("----------------------");
 
-    // console.log("Survey Data:");
-    // console.log(sampleData["metadata"]);
-    // console.log("----------------------");
+    console.log("Survey Data:");
+    console.log(sampleData["metadata"]);
+    console.log("----------------------");
 
     names = sampleData["names"]; // ID
-    // console.log("Names (IDs):");
-    // console.log(names);
-    // console.log("----------------------");
+    console.log("Names (IDs):");
+    console.log(names);
+    console.log("----------------------");
 
     ethnicities = unpack(metaData, ETHNICITY);
-    // console.log("Ethnicities:");
-    // console.log(ethnicities);
-    // console.log("----------------------");
+    console.log("Ethnicities:");
+    console.log(ethnicities);
+    console.log("----------------------");
 
     genders = unpack(metaData, GENDER);
-    // console.log("Genders:");
-    // console.log(genders);
-    // console.log("----------------------");
+    console.log("Genders:");
+    console.log(genders);
+    console.log("----------------------");
 
     ages = unpack(metaData, AGE);
-    // console.log("Ages:");
-    // console.log(ages);
-    // console.log("----------------------");
+    console.log("Ages:");
+    console.log(ages);
+    console.log("----------------------");
 
     locations = unpack(metaData, LOCATION);
-    // console.log("Locations:");
-    // console.log(locations);
-    // console.log("----------------------");
+    console.log("Locations:");
+    console.log(locations);
+    console.log("----------------------");
 
     bbtypes = unpack(metaData, BBTYPE);
-    // console.log("BBTypes:");
-    // console.log(bbtypes);
-    // console.log("----------------------");
+    console.log("BBTypes:");
+    console.log(bbtypes);
+    console.log("----------------------");
 
     wfreqs = unpack(metaData, WFREQ);
-    // console.log("WFreqs:");
-    // console.log(wfreqs);
-    // console.log("----------------------");
+    console.log("WFreqs:");
+    console.log(wfreqs);
+    console.log("----------------------");
     
     // Clear out the drop down list
     // dropdownList.options.length = 0;
