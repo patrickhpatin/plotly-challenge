@@ -8,7 +8,7 @@ const LOCATION = 4;
 const BBTYPE = 5;
 const WFREQ = 6;
 
-var dropdownList = d3.select("#selDataset");
+var dropdownList = document.getElementById("#selDataset");
 
 /**
  * Helper function to select stock data
@@ -18,9 +18,31 @@ var dropdownList = d3.select("#selDataset");
  */
 function unpack(rows, index) {
     return rows.map(function(row) {
-      return row[index];
+        switch (index) {
+            case NAME:
+                return row["name"];
+                break;
+            case ETHNICITY:
+                return row["ethnicity"];
+                break;
+            case GENDER:
+                return row["gender"];
+                break;
+            case AGE:
+                return row["age"];
+                break;
+            case LOCATION:
+                return row["location"];
+                break;
+            case BBTYPE:
+                return row["bbtype"];
+                break;
+            case WFREQ:
+                return row["wfreq"];
+                break;
+        };
     });
-  }
+}
 
 var sampleData = [];
 var metaData = [];
@@ -33,11 +55,8 @@ var locations = [];
 var bbtypes = [];
 var wfreqs = [];
 
-function addOption( text, value ) {
-    var optn = document.createElement("OPTION");
-    optn.text = text;
-    optn.value = value;
-    dropdownList.options.add(optn);
+function addOption( value ) {
+    dropdownList.options[dropdownList.options.length] = new Option(value);
 };
 
 d3.json("static/data/samples.json").then((incomingData) => {
@@ -90,13 +109,13 @@ d3.json("static/data/samples.json").then((incomingData) => {
     console.log("----------------------");
 
     // Make sure my testing is being done on the right file    
-    console.log("Still trying to add values to the drop down list.");
-    var newOption = "";
-    dropdownList.text = "";
+    console.log("Still trying to add values to the drop down list.  And I brought back the switch statement in the unpack function.");
+    
+    // Clear out the drop down list
+    dropdownList.options.length = 0;
 
     for (var i = 0; i < names.length; i++) {
-        addOption(names[i], names[i]);
-        // newOption = newOption + `<option value="${names[i]}">${names[i]}</option>`;
+        addOption(names[i]);
     };
 });
 
