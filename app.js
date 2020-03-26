@@ -109,10 +109,10 @@ d3.json("static/data/samples.json").then((incomingData) => {
     console.log("----------------------");
 
     // Make sure my testing is being done on the right file    
-    console.log("Unpack is working again.  Just testing the combobox now.  Changed location of app.js.");
+    console.log("Is the options error fixed? Removed the code to clear out drop down list.");
     
     // Clear out the drop down list
-    dropdownList.options.length = 0;
+    // dropdownList.options.length = 0;
 
     for (var i = 0; i < names.length; i++) {
         addOption(names[i]);
@@ -125,7 +125,7 @@ var demoData = `<table><tr><td><strong>id:</strong></td><td>${names[0]}</td></tr
                     `<tr><td><strong>age:</strong></td><td>${ages[0]}</td></tr>` +
                     `<tr><td><strong>location:</strong></td><td>${locations[0]}</td></tr>` +
                     `<tr><td><strong>bbtype:</strong></td><td>${bbtypes[0]}</td></tr>` +
-                    `<tr><td><strong>wfreq:</strong></td><td>${wfreqs[0]}</td></tr></table>` +
+                    `<tr><td><strong>wfreq:</strong></td><td>${wfreqs[0]}</td></tr></table>`
 d3.select("#sample-metadata").html(demoData);
 
 
