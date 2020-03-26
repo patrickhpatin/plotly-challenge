@@ -18,33 +18,9 @@ var dropdownList = d3.select("#selDataset");
  */
 function unpack(rows, index) {
     return rows.map(function(row) {
-        var value = "";
-        switch (index) {
-            case NAME:
-                value = row["id"];
-                break;
-            case ETHNICITY:
-                value = row["ethnicity"];
-                break;
-            case GENDER:
-                value = row["gender"];
-                break;
-            case AGE:
-                value = row["age"];
-                break;
-            case LOCATION:
-                value = row["location"];
-                break;
-            case BBTYPE:
-                value = row["bbtype"];
-                break;
-            case WFREQ:
-                value = row["wfreq"];
-                break;
-        };
-        return value;
+      return row[index];
     });
-};
+  }
 
 var sampleData = [];
 var metaData = [];
@@ -109,13 +85,13 @@ d3.json("static/data/samples.json").then((incomingData) => {
     // Make sure my testing is being done on the right file    
     console.log("Adding values to the drop down list now.");
     var newOption = "";
-    dropdownList.html(newOption);
+    dropdownList.text = "";
 
     for (var i = 0; i < names.length; i++) {
         newOption = newOption + `<option value="${names[i]}">${names[i]}</option>`;
-        console.log(newOption);
     };
-    dropdownList.innerHTML = newOption;
+    console.log(newOption);
+    dropdownList.text = newOption;
 });
 
 var demoData = `<table><tr><td><strong>id:</strong></td><td>${names[0]}</td></tr>` +
