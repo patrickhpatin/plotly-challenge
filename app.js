@@ -107,9 +107,6 @@ d3.json("static/data/samples.json").then((incomingData) => {
     // console.log("WFreqs:");
     // console.log(wfreqs);
     // console.log("----------------------");
-
-    // Make sure my testing is being done on the right file    
-    console.log("Selecting from the combobox should now display the index.  For reals this time.");
     
     // Clear out the drop down list
     // dropdownList.options.length = 0;
@@ -155,6 +152,9 @@ function populateHBar(index) {
 //   Plotly.newPlot("plot", data, layout);
 };
 
+// Make sure my testing is being done on the right file    
+console.log("Corrected the .onChange event.");
+
 
 function generateDemoData(index) {
     var selectedInfo = `<table><tr><td><strong>id:</strong></td><td>${names[index]}</td></tr>` +
@@ -167,7 +167,7 @@ function generateDemoData(index) {
     return selectedInfo;
 };
 
-dropdownList.on("change", () => {
+d3.select("#selDataset").on("change", () => {
     var ddlIndex = parseInt(dropdownList.options[dropdownList.selectedIndex].value);
     console.log(names[ddlIndex]);
 
