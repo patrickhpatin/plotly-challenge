@@ -8,7 +8,7 @@ const LOCATION = 4;
 const BBTYPE = 5;
 const WFREQ = 6;
 
-var dropdownList = document.getElementById("#selDataset");
+var dropdownList = document.getElementById("selDataset");
 
 /**
  * Helper function to select stock data
@@ -109,7 +109,7 @@ d3.json("static/data/samples.json").then((incomingData) => {
     console.log("----------------------");
 
     // Make sure my testing is being done on the right file    
-    console.log("Is the options error fixed? Removed the code to clear out drop down list.");
+    console.log("Changed how we reference the dropdown list.");
     
     // Clear out the drop down list
     // dropdownList.options.length = 0;
