@@ -110,23 +110,32 @@ d3.json("static/data/samples.json").then((incomingData) => {
     console.log("Adding values to the drop down list now.");
     var newOption = "";
     dropdownList.html(newOption);
-    
+
     for (var i = 0; i < names.length; i++) {
-        newOption = `${dropdownList.innerHTML}<option value="${names[i]}">${names[i]}</option>`;
+        newOption = newOption + `<option value="${names[i]}">${names[i]}</option>`;
         console.log(newOption);
-        dropdownList.innerHTML = newOption;
     };
+    dropdownList.innerHTML = newOption;
 });
 
+var demoData = `<table><tr><td><strong>id:</strong></td><td>${names[0]}</td></tr>` +
+                    `<tr><td><strong>ethnicity:</strong></td><td>${ethnicities[0]}</td></tr>` +
+                    `<tr><td><strong>gender:</strong></td><td>${genders[0]}</td></tr>` +
+                    `<tr><td><strong>age:</strong></td><td>${ages[0]}</td></tr>` +
+                    `<tr><td><strong>location:</strong></td><td>${locations[0]}</td></tr>` +
+                    `<tr><td><strong>bbtype:</strong></td><td>${bbtypes[0]}</td></tr>` +
+                    `<tr><td><strong>wfreq:</strong></td><td>${wfreqs[0]}</td></tr></table>` +
+d3.select("#sample-metadata").html(demoData);
 
-function generateDemoData(name) {
 
-};
+// function generateDemoData(name) {
+//     return `<p>Name:<br></p>`
+// };
 
-dropdownList.on("change", () => {
-    var name = dropdownList.value;
-    console.log(name);
+// dropdownList.on("change", () => {
+//     var name = dropdownList.value;
+//     console.log(name);
 
-    var demoData = generateDemoData(name);
-    d3.select("#sample-metadata").html(demoData);
-});
+//     var demoData = generateDemoData(name);
+//     d3.select("#sample-metadata").html(demoData);
+// });
