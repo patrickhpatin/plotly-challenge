@@ -206,12 +206,13 @@ function populateHBar(index) {
     
 
     var trace = {
-    x: sample_values[index],
-    y: str_otu_ids,
-    text: otu_labels[index],
+    x: sample_values[index].slice(0, 10).reverse(),
+    y: str_otu_ids.slice(0, 10).reverse(),
+    text: otu_labels[index].slice(0, 10).reverse(),
     name: "OTU Information For Selected Dataset",
     type: "bar",
-    orientation: "h"
+    orientation: "h",
+    marker: { color: "#8B4A8C" }
   };
   
   // data
@@ -220,6 +221,7 @@ function populateHBar(index) {
   // Define the HBar Layout
   var layout = {
     title: `OTU Information For Selected Dataset: ${names[index]}`,
+    paper_bgcolor: "#DBDE6D"
   };
   
   // Render the plot to the div tag with id "bar"
@@ -239,19 +241,27 @@ function populateBubbleChart(index) {
     // ================================================
 
     var trace = {
-
-    };
-
-    // data
-    var data = [trace];
-
-    // Define the Bubble Chart Layout
-    var layout = {
-
-    };
-
-    // Render the plot to the div tag "bubble"
-    Plotly.newPlot("bubble", data, layout);
+        x: otu_ids[index],
+        y: sample_values[index],
+        text: otu_ids[index],
+        mode: 'markers',
+        marker: {
+          color: "#8B4A8C",
+          size: sample_values[index]
+        }
+      };
+      
+      var data = [trace];
+      
+      var layout = {
+        title: 'Bubble Chart Hover Text',
+        showlegend: false,
+        paper_bgcolor: "#DBDE6D"
+        // height: 600,
+        // width: 600
+      };
+      
+      Plotly.newPlot('bubble', data, layout);
 };
 
 function populateGaugeChart(index) {
@@ -265,7 +275,7 @@ function populateGaugeChart(index) {
 
     var trace = {
         gauge: {
-            axis: { range: [null, 10], tickwidth: 1, tickcolor: "#6F2A1A" },
+            axis: { range: [null, 9], tickwidth: 1, tickcolor: "#6F2A1A" },
             bar: { color: "#8B4A8C" },
             bgcolor: "white",
             borderwidth: 2,
@@ -315,8 +325,10 @@ function optionChanged(index) {
     d3.select("#sample-metadata").html(demoData);
 
     populateHBar(ddlIndex);
+    populateBubbleChart(ddlIndex);
     populateGaugeChart(ddlIndex);
 };
 
-demoData = generateDemoData(0);
-d3.select("#sample-metadata").html(demoData);
+// demoData = generateDemoData(0);
+// d3.select("#sample-metadata").html(demoData);
+dropdownList.onchange("0");
