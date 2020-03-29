@@ -222,7 +222,7 @@ function populateBubbleChart(index) {
         text: otu_ids[index],
         mode: 'markers',
         marker: {
-          color: "#8B4A8C",
+          color: otu_ids[index],
           size: sample_values[index]
         }
       };
