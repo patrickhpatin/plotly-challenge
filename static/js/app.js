@@ -196,8 +196,10 @@ function populateHBar(index) {
   
   // Define the HBar Layout
   var layout = {
-    title: `OTU Information For Selected Dataset: ${names[index]}`,
-    paper_bgcolor: "#DBDE6D"
+    title: `OTU Information For: BB_${names[index]}`,
+    paper_bgcolor: "#DBDE6D",
+    xaxis: { title: { text: "QUANTITY OF BACTERIUM" } },
+    yaxis: { title: { text: "OTU ID" } }
   };
   
   // Render the plot to the div tag with id "bar"
@@ -230,9 +232,11 @@ function populateBubbleChart(index) {
       var data = [trace];
       
       var layout = {
-        title: 'Bubble Chart Hover Text',
+        title: `Bubble Chart For: BB_${names[index]}`,
         showlegend: false,
-        paper_bgcolor: "#DBDE6D"
+        paper_bgcolor: "#DBDE6D",
+        xaxis: { title: { text: "OTU ID" } },
+        yaxis: { title: { text: "QUANTITY OF BACTERIUM" } },
         // height: 600,
         // width: 600
       };

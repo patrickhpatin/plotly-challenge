@@ -25,7 +25,7 @@ function populateGaugeChart(index) {
             borderwidth: 2,
             bordercolor: "#8b4a8c"},
 		value: wfreqs[index],
-		title: { text: "Weekly Washing Frequency" },
+        title: { text: `Navel Washing Frequency For: BB_${names[index]}<br>(Scrubs Per Week)` },
 		type: "indicator",
 		mode: "gauge+number"
     };
