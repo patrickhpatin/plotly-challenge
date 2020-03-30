@@ -219,7 +219,7 @@ function populateBubbleChart(index) {
     var trace = {
         x: otu_ids[index],
         y: sample_values[index],
-        text: otu_ids[index],
+        text: otu_labels[index],
         mode: 'markers',
         marker: {
           color: otu_ids[index],
