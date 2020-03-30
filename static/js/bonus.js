@@ -21,7 +21,7 @@ function populateGaugeChart(index) {
                 { range: [7, 8], color: "#ad4f87" },
                 { range: [8, 9], color: "#8b4a8c" }
               ],
-            bar: { color: "#45652A" },
+            bar: { color: "#3E78B3" },
             borderwidth: 2,
             bordercolor: "#8b4a8c"},
 		value: wfreqs[index],
