@@ -23,7 +23,6 @@ const AGE = 3;
 const LOCATION = 4;
 const BBTYPE = 5;
 const WFREQ = 6;
-
 function unpackMetadata(rows, fetchValue) {
     return rows.map(function(row) {
         switch (fetchValue) {
@@ -61,103 +60,59 @@ function unpackSamples(rows, fetchValue) {
             case OTU_IDS:
                 return row["otu_ids"];
                 break;
-            case SAMPLE_VALUES:
-                return row["sample_values"];
-                break;
             case OTU_LABELS:
                 return row["otu_labels"];
+                break;
+            case SAMPLE_VALUES:
+                return row["sample_values"];
                 break;
         };
     });
 };
 
-var sampleData = [];
-var metaData = [];
-
-var names = [];
-var ethnicities = [];
-var genders = [];
-var ages = [];
-var locations = [];
-var bbtypes = [];
-var wfreqs = [];
-var otu_ids = [];
-var sample_values = [];
-var otu_labels = [];
 var demoData = "";
+
+var ages = [];
+var names = [];
+var wfreqs = [];
+var genders = [];
+var bbtypes = [];
+var otu_ids = [];
+var metaData = [];
+var locations = [];
+var sampleData = [];
+var otu_labels = [];
+var ethnicities = [];
+var sample_values = [];
+
 
 function addOption( index ) {
     dropdownList.options[dropdownList.options.length] = new Option("BB_" + names[index], index.toString());
 };
 
+
 for (var i = 0; i < names.length; i++) {
     addOption(i);
 };
 
+
 d3.json("static/data/samples.json").then((incomingData) => {
     // Store the raw data for later use
     sampleData = incomingData;
-    metaData = sampleData["metadata"];
     samples = sampleData["samples"];
-
-    // Let's see the raw data
-    console.log("ALL DATA:");
-    console.log(sampleData);
-    console.log("----------------------");
-
-    console.log("Survey Data:");
-    console.log(sampleData["metadata"]);
-    console.log("----------------------");
+    metaData = sampleData["metadata"];
 
     names = sampleData["names"]; // ID
-    console.log("Names (IDs):");
-    console.log(names);
-    console.log("----------------------");
-
-    ethnicities = unpackMetadata(metaData, ETHNICITY);
-    console.log("Ethnicities:");
-    console.log(ethnicities);
-    console.log("----------------------");
-
-    genders = unpackMetadata(metaData, GENDER);
-    console.log("Genders:");
-    console.log(genders);
-    console.log("----------------------");
 
     ages = unpackMetadata(metaData, AGE);
-    console.log("Ages:");
-    console.log(ages);
-    console.log("----------------------");
-
-    locations = unpackMetadata(metaData, LOCATION);
-    console.log("Locations:");
-    console.log(locations);
-    console.log("----------------------");
-
-    bbtypes = unpackMetadata(metaData, BBTYPE);
-    console.log("BBTypes:");
-    console.log(bbtypes);
-    console.log("----------------------");
-
     wfreqs = unpackMetadata(metaData, WFREQ);
-    console.log("WFreqs:");
-    console.log(wfreqs);
-    console.log("----------------------");
-
     otu_ids = unpackSamples(samples, OTU_IDS);
-    console.log("OTU_IDs:");
-    console.log(otu_ids);
-    console.log("----------------------");
-
-    sample_values = unpackSamples(samples, SAMPLE_VALUES);
-    console.log("Sample_Values:");
-    console.log(sample_values);
-    console.log("----------------------");
-
+    genders = unpackMetadata(metaData, GENDER);
+    bbtypes = unpackMetadata(metaData, BBTYPE);
+    locations = unpackMetadata(metaData, LOCATION);
     otu_labels = unpackSamples(samples, OTU_LABELS);
-    console.log("OTU_Labels:");
-    console.log(otu_labels);
-    console.log("----------------------");
+    ethnicities = unpackMetadata(metaData, ETHNICITY);
+    sample_values = unpackSamples(samples, SAMPLE_VALUES);
 
     for (var i = 0; i < names.length; i++) {
         addOption(i);
@@ -165,6 +120,7 @@ d3.json("static/data/samples.json").then((incomingData) => {
     
     dropdownList.onchange("0");
 });
+
 
 function populateHBar(index) {
     // ================================================
@@ -188,7 +144,7 @@ function populateHBar(index) {
         name: "OTU Information For Selected Dataset",
         type: "bar",
         orientation: "h",
-        marker: { color: "#8B4A8C" }
+        marker: { color: "#3E78B3" }
     };
   
   // data
@@ -205,6 +161,7 @@ function populateHBar(index) {
   // Render the plot to the div tag with id "bar"
   Plotly.newPlot("bar", data, layout);
 };
+
 
 function populateBubbleChart(index) {
     // ================================================
@@ -236,72 +193,16 @@ function populateBubbleChart(index) {
         showlegend: false,
         paper_bgcolor: "#DBDE6D",
         xaxis: { title: { text: "OTU ID" } },
-        yaxis: { title: { text: "QUANTITY OF BACTERIUM" } },
-        // height: 600,
-        // width: 600
+        yaxis: { title: { text: "QUANTITY OF BACTERIUM" } }
       };
       
       Plotly.newPlot('bubble', data, layout);
 };
 
-// function populateGaugeChart(index) {
-//     // ================================================
-//     //                Gauge Chart Code
-//     // ================================================
-//     // Adapt the Gauge Chart
-//     // from https://plot.ly/javascript/gauge-charts
-//     // to plot the weekly washing frequency of the individual
-//     // ================================================
 
-//     var trace = {
-//         gauge: {
-//             axis: { range: [null, 9], tickwidth: 1, tickcolor: "#8B4A8C", tickmode: "linear" },
-//             bar: { color: "#8B4A8C" },
-//             bgcolor: "white",
-//             borderwidth: 2,
-//             bordercolor: "gray"},
-// 		value: wfreqs[index],
-// 		title: { text: "Weekly Washing Frequency", color: "#8B4A8C" },
-// 		type: "indicator",
-// 		mode: "gauge+number"
-//     };
-
-//     // data
-//     var data = [trace];
-
-//     // Define the Gauge Chart Layout
-//     var layout = {
-//         margin: { t: 0, b: 0 },
-//         paper_bgcolor: "#DBDE6D",
-//         fontcolor: "#8B4A8C"
-//     };
-
-//     // Render the plot to the div tag "gauge"
-//     Plotly.newPlot("gauge", data, layout);
-// };
-
-// Make sure my testing is being done on the right file    
-console.log("Added selectedIndex to the console log.");
-
-
-function generateDemoData(lstIndex) {
-    var selectedInfo = `<table><tr><td><strong>id:</strong></td><td>${names[lstIndex]}</td></tr>` +
-    `<tr><td><strong>ethnicity:</strong></td><td>${ethnicities[lstIndex]}</td></tr>` +
-    `<tr><td><strong>gender:</strong></td><td>${genders[lstIndex]}</td></tr>` +
-    `<tr><td><strong>age:</strong></td><td>${ages[lstIndex]}</td></tr>` +
-    `<tr><td><strong>location:</strong></td><td>${locations[lstIndex]}</td></tr>` +
-    `<tr><td><strong>bbtype:</strong></td><td>${bbtypes[lstIndex]}</td></tr>` +
-    `<tr><td><strong>wfreq:</strong></td><td>${wfreqs[lstIndex]}</td></tr></table>`
-    return selectedInfo;
-};
-
-// d3.select("#selDataset").on("change", () => {
 function optionChanged(index) {
-    // var ddlIndex = parseInt(dropdownList.options[dropdownList.selectedIndex].value);
     var ddlIndex = parseInt(index);
 
-    // demoData = generateDemoData(ddlIndex);
-    // d3.select("#sample-metadata").html(demoData);
     d3.select("#sample-metadata").html("");
     var mytable = d3.select("#sample-metadata").append("table");
     Object.entries(metaData[ddlIndex]).forEach(([key, value]) => {
