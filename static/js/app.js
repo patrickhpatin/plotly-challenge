@@ -208,6 +208,7 @@ function optionChanged(index) {
     Object.entries(metaData[ddlIndex]).forEach(([key, value]) => {
         var myrow = mytable.append("tr");
         myrow.append("td").text(key + ": ").style("font-weight", "bold");
+        if (key === "id") { value = "BB_" + value; };            
         myrow.append("td").text(value);
     });
 
